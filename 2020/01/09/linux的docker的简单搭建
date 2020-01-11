@@ -755,27 +755,29 @@ systemctl disable firewalld
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
+                Current&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/2020/01/08/hello-world">
+                <a href="/2020/01/09/linux%E7%9A%84docker%E7%9A%84%E7%AE%80%E5%8D%95%E6%90%AD%E5%BB%BA">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="linux的docker的简单搭建">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">linux的docker的简单搭建</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                            Docker的简单搭建在Centos 7中搭建docker的简单教程1.关闭firewall、selinux永久关闭firewall以防开着防火墙报出什么错误。
+systemctl disable firewalld
+永久关闭selinux
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-09
                             </span>
                         <span class="publish-author">
                             
@@ -785,6 +787,7 @@ systemctl disable firewalld
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
