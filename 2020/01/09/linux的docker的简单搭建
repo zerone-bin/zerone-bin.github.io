@@ -4,8 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, Blog">
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex">
+    <meta name="keywords" content="linux的docker的简单搭建, Blog">
+    <meta name="description" content="Docker的简单搭建在Centos 7中搭建docker的简单教程1.关闭firewall、selinux永久关闭firewall以防开着防火墙报出什么错误。
+systemctl disable firewalld
+永久关闭selinux">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +15,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Hello World | Blog</title>
+    <title>linux的docker的简单搭建 | Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -26,7 +28,7 @@
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -303,12 +305,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">linux的docker的简单搭建</h1>
                 </div>
             </div>
         </div>
@@ -437,7 +439,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-01-08
+                    2020-01-09
                 </div>
                 
 
@@ -454,19 +456,37 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+                <h1 id="Docker的简单搭建"><a href="#Docker的简单搭建" class="headerlink" title="Docker的简单搭建"></a>Docker的简单搭建</h1><h2 id="在Centos-7中搭建docker的简单教程"><a href="#在Centos-7中搭建docker的简单教程" class="headerlink" title="在Centos 7中搭建docker的简单教程"></a>在Centos 7中搭建docker的简单教程</h2><h3 id="1-关闭firewall、selinux"><a href="#1-关闭firewall、selinux" class="headerlink" title="1.关闭firewall、selinux"></a>1.关闭firewall、selinux</h3><p>永久关闭firewall以防开着防火墙报出什么错误。</p>
+<p>systemctl disable firewalld</p>
+<p>永久关闭selinux。</p>
+<p>vim /etc/selinux/config</p>
+<p>SELINUX=disabled     //永久的</p>
+<p>然后重新启动系统</p>
+<p>reboot     //重启</p>
+<h3 id="2-更新yum"><a href="#2-更新yum" class="headerlink" title="2.更新yum"></a>2.更新yum</h3><p>你要安装docker首先一定要更新yum源。</p>
+<p>yum update</p>
+<p>首先设置存储库，使用存储库安装。</p>
+<p>在新主机上首次安装Docker Engine-Community之前，需要设置Docker存储库。之后，您可以从存储库安装和更新Docker。</p>
+<p>3.1 安装所需的软件包。<code>yum-utils</code>提供了<code>yum-config-manager</code> 效用，并<code>device-mapper-persistent-data</code>和<code>lvm2</code>由需要 <code>devicemapper</code>存储驱动程序。</p>
+<p>yum install -y yum-utils <br>  device-mapper-persistent-data <br>  lvm2</p>
+<p>3.2 使用以下命令来设置<strong>稳定的</strong>存储库。</p>
+<p>yum-config-manager <br>    –add-repo <br>    <a href="https://download.docker.com/linux/centos/docker-ce.repo" target="_blank" rel="noopener">https://download.docker.com/linux/centos/docker-ce.repo</a></p>
+<p>3.3 安装<em>最新版本</em>的Docker Engine-Community和containerd</p>
+<p>yum install docker-ce docker-ce-cli containerd.io</p>
+<p>3.4 启动Docker。</p>
+<p>systemctl start docker</p>
+<p>3.5 通过运行<code>hello-world</code> 映像来验证是否正确安装了Docker Engine-Community 。</p>
+<p>docker run hello-world</p>
+<p>3.6 接下来导入镜像</p>
+<p>docker load &lt; dcn_web_test.tar</p>
+<p>3.7 查看镜像</p>
+<p>docker images</p>
+<p>3.8 为镜像更名</p>
+<p>docker tag 26cc2734a48d web_pentest:v1</p>
+<p>3.9 从web_pentest镜像创建容器</p>
+<p>docker run -itd -p 9999:80 web_pentest:v1</p>
+<h2 id="4-进入容器"><a href="#4-进入容器" class="headerlink" title="4. 进入容器"></a>4. 进入容器</h2><p>docker ps  //查看当前容器的ID<br>docker exec –it (id) /bin/bash   //进入容器</p>
+<p>exit 退出</p>
 
             </div>
             <hr/>
@@ -482,7 +502,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com" rel="external nofollow noreferrer">亚彬</a>
+                    <a href="http://yabin.zerone.org.cn" rel="external nofollow noreferrer">亚彬</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -492,7 +512,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/01/08/hello-world/">http://yoursite.com/2020/01/08/hello-world/</a>
+                    <a href="http://yabin.zerone.org.cn/2020/01/09/linux%E7%9A%84docker%E7%9A%84%E7%AE%80%E5%8D%95%E6%90%AD%E5%BB%BA">http://yabin.zerone.org.cn/2020/01/09/linux%E7%9A%84docker%E7%9A%84%E7%AE%80%E5%8D%95%E6%90%AD%E5%BB%BA</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -505,7 +525,7 @@
                     All articles in this blog are used except for special statements
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     reprint polocy. If reproduced, please indicate source
-                    <a href="http://yoursite.com" target="_blank">亚彬</a>
+                    <a href="http://yabin.zerone.org.cn" target="_blank">亚彬</a>
                     !
                 </span>
             </div>
@@ -693,11 +713,12 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2020/01/09/linux%E7%9A%84docker%E7%9A%84%E7%AE%80%E5%8D%95%E6%90%AD%E5%BB%BA/">
+                <a href="/2020/01/09/linux%E7%9A%84docker%E7%9A%84%E7%AE%80%E5%8D%95%E6%90%AD%E5%BB%BA">
                     <div class="card-image">
                         
                         
@@ -715,9 +736,9 @@ systemctl disable firewalld
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-09
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -726,6 +747,7 @@ systemctl disable firewalld
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -733,10 +755,10 @@ systemctl disable firewalld
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                Current&nbsp;<i class="far fa-dot-circle"></i>
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/01/08/hello-world/">
+                <a href="/2020/01/08/hello-world">
                     <div class="card-image">
                         
                         
@@ -763,7 +785,6 @@ systemctl disable firewalld
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
@@ -905,7 +926,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             <span id="year">2019</span>
-            <a href="http://yoursite.com" target="_blank">亚彬</a>
+            <a href="http://yabin.zerone.org.cn" target="_blank">亚彬</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
