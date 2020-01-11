@@ -458,37 +458,32 @@ systemctl disable firewalld
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="Docker的简单搭建"><a href="#Docker的简单搭建" class="headerlink" title="Docker的简单搭建"></a>Docker的简单搭建</h1><h2 id="在Centos-7中搭建docker的简单教程"><a href="#在Centos-7中搭建docker的简单教程" class="headerlink" title="在Centos 7中搭建docker的简单教程"></a>在Centos 7中搭建docker的简单教程</h2><h3 id="1-关闭firewall、selinux"><a href="#1-关闭firewall、selinux" class="headerlink" title="1.关闭firewall、selinux"></a>1.关闭firewall、selinux</h3><p>永久关闭firewall以防开着防火墙报出什么错误。</p>
-<p>systemctl disable firewalld</p>
+<pre class="line-numbers language-bash"><code class="language-bash">systemctl disable firewalld<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>永久关闭selinux。</p>
-<p>vim /etc/selinux/config</p>
-<p>SELINUX=disabled     //永久的</p>
-<p>然后重新启动系统</p>
-<p>reboot     //重启</p>
-<h3 id="2-更新yum"><a href="#2-更新yum" class="headerlink" title="2.更新yum"></a>2.更新yum</h3><p>你要安装docker首先一定要更新yum源。</p>
-<p>yum update</p>
-<p>首先设置存储库，使用存储库安装。</p>
-<p>在新主机上首次安装Docker Engine-Community之前，需要设置Docker存储库。之后，您可以从存储库安装和更新Docker。</p>
-<p>3.1 安装所需的软件包。<code>yum-utils</code>提供了<code>yum-config-manager</code> 效用，并<code>device-mapper-persistent-data</code>和<code>lvm2</code>由需要 <code>devicemapper</code>存储驱动程序。</p>
-<p>yum install -y yum-utils <br>  device-mapper-persistent-data <br>  lvm2</p>
-<p>3.2 使用以下命令来设置<strong>稳定的</strong>存储库。</p>
-<p>yum-config-manager <br>    –add-repo <br>    <a href="https://download.docker.com/linux/centos/docker-ce.repo" target="_blank" rel="noopener">https://download.docker.com/linux/centos/docker-ce.repo</a></p>
-<p>3.3 安装<em>最新版本</em>的Docker Engine-Community和containerd</p>
-<p>yum install docker-ce docker-ce-cli containerd.io</p>
-<p>3.4 启动Docker。</p>
-<p>systemctl start docker</p>
-<p>3.5 通过运行<code>hello-world</code> 映像来验证是否正确安装了Docker Engine-Community 。</p>
-<p>docker run hello-world</p>
-<p>3.6 接下来导入镜像</p>
-<p>docker load &lt; dcn_web_test.tar</p>
-<p>3.7 查看镜像</p>
-<p>docker images</p>
-<p>3.8 为镜像更名</p>
-<p>docker tag 26cc2734a48d web_pentest:v1</p>
-<p>3.9 从web_pentest镜像创建容器</p>
-<p>docker run -itd -p 9999:80 web_pentest:v1</p>
-<h2 id="4-进入容器"><a href="#4-进入容器" class="headerlink" title="4. 进入容器"></a>4. 进入容器</h2><p>docker ps  //查看当前容器的ID<br>docker exec –it (id) /bin/bash   //进入容器</p>
-<p>exit 退出</p>
+<pre class="line-numbers language-bash"><code class="language-bash">vim /etc/selinux/config
 
+SELINUX<span class="token operator">=</span>disabled     //永久的<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>然后重新启动系统</p>
+<pre><code>reboot     //重启</code></pre><h3 id="2-更新yum"><a href="#2-更新yum" class="headerlink" title="2.更新yum"></a>2.更新yum</h3><p>你要安装docker首先一定要更新yum源。</p>
+<pre><code>yum update</code></pre><p>首先设置存储库，使用存储库安装。</p>
+<p>在新主机上首次安装Docker Engine-Community之前，需要设置Docker存储库。之后，您可以从存储库安装和更新Docker。</p>
+<h3 id="3-安装docker"><a href="#3-安装docker" class="headerlink" title="3.安装docker"></a>3.安装docker</h3><p>3.1 安装所需的软件包。<code>yum-utils</code>提供了<code>yum-config-manager</code> 效用，并<code>device-mapper-persistent-data</code>和<code>lvm2</code>由需要 <code>devicemapper</code>存储驱动程序。</p>
+<pre><code>yum install -y yum-utils \
+  device-mapper-persistent-data \
+  lvm2</code></pre><p>3.2 使用以下命令来设置<strong>稳定的</strong>存储库。</p>
+<pre><code>yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo</code></pre><p>3.3 安装<em>最新版本</em>的Docker Engine-Community和containerd</p>
+<pre><code>yum install docker-ce docker-ce-cli containerd.io</code></pre><p>3.4 启动Docker。</p>
+<pre><code>systemctl start docker</code></pre><p>3.5 通过运行<code>hello-world</code> 映像来验证是否正确安装了Docker Engine-Community 。</p>
+<pre><code>docker run hello-world</code></pre><p>3.6 接下来导入镜像</p>
+<pre><code>docker load &lt; dcn_web_test.tar</code></pre><p>3.7 查看镜像</p>
+<pre><code>docker images</code></pre><p>3.8 为镜像更名</p>
+<pre><code>docker tag 26cc2734a48d web_pentest:v1</code></pre><p>3.9 从web_pentest镜像创建容器</p>
+<pre><code>docker run -itd -p 9999:80 web_pentest:v1</code></pre><h3 id="4-进入容器"><a href="#4-进入容器" class="headerlink" title="4. 进入容器"></a>4. 进入容器</h3><pre><code>docker ps  //查看当前容器的ID
+docker exec –it (id) /bin/bash   //进入容器
+
+exit //退出</code></pre>
             </div>
             <hr/>
 
@@ -805,8 +800,6 @@ systemctl disable firewalld
 
 <!-- 代码语言 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
-
 
 <!-- 代码块复制 -->
 
@@ -957,13 +950,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <a href="https://https://github.com/zerone-bin/zerone-bin.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
 
 
 
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:2954919595@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
@@ -973,7 +966,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2954919595" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2954919595" data-position="top" data-delay="50">
         <i class="fab fa-qq"></i>
     </a>
 
